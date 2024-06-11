@@ -20,12 +20,12 @@ public class SecurityConfig {
 
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		http.csrf().disable().cors().disable();
+		http.csrf().disable().cors().disable(); //CSRF, CORS 보호 기능을 비활성화한다.
 
 		http.headers().frameOptions().sameOrigin();
 
 		http.authorizeRequests().antMatchers("/**").permitAll().anyRequest().permitAll().and().logout((logout) -> // 로그아웃
-		logout.deleteCookies("remove") // 쿠키 초기화
+		logout.deleteCookies("remove") // 쿠키 초기화(로그아웃 시 특정 쿠키 삭제)
 				.invalidateHttpSession(true) // 세션초기화 기본값 true 생략가능
 				.logoutSuccessUrl("/login")).formLogin().loginPage("/login") // 로그인이 안됬는데 로그인 권한이 필요한페이지를
 																				// 호출했을때 이동할 로그인페이지

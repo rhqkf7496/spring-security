@@ -5,11 +5,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ViewController {
-
+	
 	@GetMapping("/")
 	public String index() {
-		return "index";
+		return "/view/login";
 	}
 	
+	@GetMapping("/home")
+	public String home() {
+		return "/view/home";
+	}
 	
 }

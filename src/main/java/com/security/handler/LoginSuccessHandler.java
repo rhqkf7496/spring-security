@@ -23,5 +23,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 
 		session.setAttribute("user", user);
 		System.out.println(user);
+		
+		response.sendRedirect("/home");
 	}
 }
