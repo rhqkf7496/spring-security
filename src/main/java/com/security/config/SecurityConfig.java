@@ -32,8 +32,8 @@ public class SecurityConfig {
 				.loginProcessingUrl("/auth/login/api") // 스프링 시큐리티가 해당 주소로 요청오는 로그인을 가로채서 대신 로그인 해준다.
 				.failureHandler(customFailurHandler()) // 로그인 실패 핸들러
 				.successHandler(customSuccessHandler()); // 로그인 성공 핸들러
-
-		http.sessionManagement().maximumSessions(1); // 최대세션 사용 갯수(중복 로그인 수)
+ 
+		http.sessionManagement().maximumSessions(1); // 최대세션 사용 갯수(중복 로그인 수) 
 		return http.build();
 	}
 
